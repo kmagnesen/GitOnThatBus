@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="mOr-Ex-VQP">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +16,113 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="71V-JL-CnS">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="eQH-1q-Kew"/>
+                                </connections>
+                            </mapView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="d1S-DE-pdf">
+                                <rect key="frame" x="-61" y="-14" width="123" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="uIj-xN-Usg"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="MAP"/>
+                                    <segment title="LIST"/>
+                                </segments>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="uIj-xN-Usg"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="uIj-xN-Usg"/>
+                                    </mask>
+                                </variation>
+                            </segmentedControl>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="d1S-DE-pdf" firstAttribute="top" secondItem="71V-JL-CnS" secondAttribute="bottom" constant="1" id="3bg-ji-SI0"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="71V-JL-CnS" secondAttribute="bottom" id="GKq-wf-xWk">
+                                <variation key="widthClass=compact" constant="31"/>
+                            </constraint>
+                            <constraint firstAttribute="centerX" secondItem="d1S-DE-pdf" secondAttribute="centerX" id="J4p-FZ-WdB"/>
+                            <constraint firstItem="d1S-DE-pdf" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="OmE-UN-5ss">
+                                <variation key="widthClass=compact" constant="16"/>
+                            </constraint>
+                            <constraint firstItem="71V-JL-CnS" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="bOe-rq-6nZ">
+                                <variation key="widthClass=compact" constant="64"/>
+                            </constraint>
+                            <constraint firstItem="71V-JL-CnS" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="jAH-ec-Ce5"/>
+                            <constraint firstItem="d1S-DE-pdf" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="t9B-UM-Aoo">
+                                <variation key="widthClass=compact" constant="-16"/>
+                            </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="71V-JL-CnS" secondAttribute="trailing" constant="-16" id="xAZ-6E-pyZ"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="71V-JL-CnS"/>
+                                <exclude reference="d1S-DE-pdf"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="bOe-rq-6nZ"/>
+                                <exclude reference="jAH-ec-Ce5"/>
+                                <exclude reference="xAZ-6E-pyZ"/>
+                                <exclude reference="3bg-ji-SI0"/>
+                                <exclude reference="J4p-FZ-WdB"/>
+                                <exclude reference="OmE-UN-5ss"/>
+                                <exclude reference="t9B-UM-Aoo"/>
+                                <exclude reference="GKq-wf-xWk"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="71V-JL-CnS"/>
+                                <include reference="d1S-DE-pdf"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="bOe-rq-6nZ"/>
+                                <include reference="jAH-ec-Ce5"/>
+                                <include reference="xAZ-6E-pyZ"/>
+                                <include reference="3bg-ji-SI0"/>
+                                <include reference="J4p-FZ-WdB"/>
+                                <include reference="OmE-UN-5ss"/>
+                                <include reference="t9B-UM-Aoo"/>
+                                <include reference="GKq-wf-xWk"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="asi-ME-82u"/>
+                    <connections>
+                        <outlet property="mapListToggle" destination="d1S-DE-pdf" id="YSM-3Y-NAl"/>
+                        <outlet property="mapView" destination="71V-JL-CnS" id="9AK-DK-aSx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1188" y="337"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kmq-SE-ehW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mOr-Ex-VQP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="H2m-Ws-mwM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="yUM-Yf-APQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V52-ET-aFD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="538.5" y="337"/>
         </scene>
     </scenes>
 </document>

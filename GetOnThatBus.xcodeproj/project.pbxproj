@@ -14,6 +14,7 @@
 		F91D5CB41A6EE9A1000CE1CD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F91D5CB31A6EE9A1000CE1CD /* Images.xcassets */; };
 		F91D5CB71A6EE9A1000CE1CD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F91D5CB51A6EE9A1000CE1CD /* LaunchScreen.xib */; };
 		F91D5CC31A6EE9A1000CE1CD /* GetOnThatBusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F91D5CC21A6EE9A1000CE1CD /* GetOnThatBusTests.m */; };
+		F91D5CCD1A6EEA82000CE1CD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F91D5CCC1A6EEA82000CE1CD /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		F91D5CBC1A6EE9A1000CE1CD /* GetOnThatBusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GetOnThatBusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F91D5CC11A6EE9A1000CE1CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F91D5CC21A6EE9A1000CE1CD /* GetOnThatBusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetOnThatBusTests.m; sourceTree = "<group>"; };
+		F91D5CCC1A6EEA82000CE1CD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F91D5CCD1A6EEA82000CE1CD /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +66,7 @@
 		F91D5C9A1A6EE9A1000CE1CD = {
 			isa = PBXGroup;
 			children = (
+				F91D5CCC1A6EEA82000CE1CD /* MapKit.framework */,
 				F91D5CA51A6EE9A1000CE1CD /* GetOnThatBus */,
 				F91D5CBF1A6EE9A1000CE1CD /* GetOnThatBusTests */,
 				F91D5CA41A6EE9A1000CE1CD /* Products */,
