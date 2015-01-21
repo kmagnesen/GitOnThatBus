@@ -15,6 +15,7 @@
 		F91D5CB71A6EE9A1000CE1CD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F91D5CB51A6EE9A1000CE1CD /* LaunchScreen.xib */; };
 		F91D5CC31A6EE9A1000CE1CD /* GetOnThatBusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F91D5CC21A6EE9A1000CE1CD /* GetOnThatBusTests.m */; };
 		F91D5CCD1A6EEA82000CE1CD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F91D5CCC1A6EEA82000CE1CD /* MapKit.framework */; };
+		F91D5CD01A6F39BF000CE1CD /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F91D5CCF1A6F39BF000CE1CD /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 		F91D5CC11A6EE9A1000CE1CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F91D5CC21A6EE9A1000CE1CD /* GetOnThatBusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetOnThatBusTests.m; sourceTree = "<group>"; };
 		F91D5CCC1A6EEA82000CE1CD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F91D5CCE1A6F39BF000CE1CD /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		F91D5CCF1A6F39BF000CE1CD /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,8 @@
 				F91D5CAB1A6EE9A1000CE1CD /* AppDelegate.m */,
 				F91D5CAD1A6EE9A1000CE1CD /* ViewController.h */,
 				F91D5CAE1A6EE9A1000CE1CD /* ViewController.m */,
+				F91D5CCE1A6F39BF000CE1CD /* DetailViewController.h */,
+				F91D5CCF1A6F39BF000CE1CD /* DetailViewController.m */,
 				F91D5CB01A6EE9A1000CE1CD /* Main.storyboard */,
 				F91D5CB31A6EE9A1000CE1CD /* Images.xcassets */,
 				F91D5CB51A6EE9A1000CE1CD /* LaunchScreen.xib */,
@@ -226,6 +231,7 @@
 				F91D5CAF1A6EE9A1000CE1CD /* ViewController.m in Sources */,
 				F91D5CAC1A6EE9A1000CE1CD /* AppDelegate.m in Sources */,
 				F91D5CA91A6EE9A1000CE1CD /* main.m in Sources */,
+				F91D5CD01A6F39BF000CE1CD /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

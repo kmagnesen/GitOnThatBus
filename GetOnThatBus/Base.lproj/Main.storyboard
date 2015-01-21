@@ -17,12 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="71V-JL-CnS">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <connections>
-                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="eQH-1q-Kew"/>
-                                </connections>
-                            </mapView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="d1S-DE-pdf">
                                 <rect key="frame" x="-61" y="-14" width="123" height="29"/>
                                 <constraints>
@@ -43,6 +37,13 @@
                                     </mask>
                                 </variation>
                             </segmentedControl>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="71V-JL-CnS">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="eQH-1q-Kew"/>
+                                </connections>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -65,8 +66,8 @@
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="71V-JL-CnS"/>
                                 <exclude reference="d1S-DE-pdf"/>
+                                <exclude reference="71V-JL-CnS"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="bOe-rq-6nZ"/>
@@ -81,8 +82,8 @@
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="71V-JL-CnS"/>
                                 <include reference="d1S-DE-pdf"/>
+                                <include reference="71V-JL-CnS"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="bOe-rq-6nZ"/>
@@ -100,11 +101,29 @@
                     <connections>
                         <outlet property="mapListToggle" destination="d1S-DE-pdf" id="YSM-3Y-NAl"/>
                         <outlet property="mapView" destination="71V-JL-CnS" id="9AK-DK-aSx"/>
+                        <segue destination="9Fs-ZE-Wnh" kind="show" identifier="DetailsIphone" id="hJe-Ju-yw2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1188" y="337"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="xtP-U4-NsP">
+            <objects>
+                <viewController id="9Fs-ZE-Wnh" customClass="DetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="v5K-iy-dDP"/>
+                        <viewControllerLayoutGuide type="bottom" id="lrk-i0-qNj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IXN-Ma-5ck">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OR3-aW-wQn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1878" y="337"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kmq-SE-ehW">

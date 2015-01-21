@@ -7,15 +7,13 @@
 //
 
 #import "ViewController.h"
+#import "DetailViewController.h"
 #import <MapKit/MapKit.h>
 
 @interface ViewController () <MKMapViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UISegmentedControl *mapListToggle;
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
-@property NSMutableArray *rowArray;
-@property CLLocationManager *locationManager;
-@property MKPointAnnotation *rowAnnotation;
 
 @end
 
@@ -24,24 +22,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-//    MKCoordinateRegion chicago;
-//    chicago.center.latitude = 41.8500300;
-//    chicago.center.longitude = -87.6500500;
-//    chicago.span.latitudeDelta = 0.15;
-//    chicago.span.longitudeDelta = 0.15;
-//    chicago = [self.mapView regionThatFits:chicago];
-//    [self.mapView setRegion:chicago animated:YES];
-
+    MKCoordinateRegion chicago;
+    chicago.center.latitude = 41.850030;
+    chicago.center.longitude = -87.640050;
+    chicago.span.latitudeDelta = 0.115;
+    chicago.span.longitudeDelta = 0.115;
+    chicago = [self.mapView regionThatFits:chicago];
+    [self.mapView setRegion:chicago animated:YES];
 
 //    self.locationManager = [[CLLocationManager alloc] init];
 //    [self.locationManager requestWhenInUseAuthorization];
 //    self.mapView.showsUserLocation = YES;
 
     NSURL *busAPI = [NSURL URLWithString:@"https://s3.amazonaws.com/mobile-makers-lib/bus.json"];
-    [self loadBusStopAIP:busAPI];
+    [self loadBusStopAPI:busAPI];
 }
 
--(void)loadBusStopAIP:(NSURL *)apiURL {
+-(void)loadBusStopAPI:(NSURL *)apiURL {
 
     NSURLRequest *request = [NSURLRequest requestWithURL:apiURL];
 
@@ -58,10 +55,10 @@
 
          for (NSDictionary *row in self.rowArray) {
 
-             float latitude = [[row objectForKey:@"latitude"]floatValue];
-             float longitude = [[row objectForKey:@"longitude"]floatValue];
-
              self.rowAnnotation = [[MKPointAnnotation alloc] init];
+             NSDictionary *location = [row objectForKey:@"location"];
+             float latitude = [[location objectForKey:@"latitude"]floatValue];
+             float longitude = [[location objectForKey:@"longitude"]floatValue];
              self.rowAnnotation.coordinate = CLLocationCoordinate2DMake(latitude, longitude);
              self.rowAnnotation.title = [row objectForKey:@"cta_stop_name"];
              self.rowAnnotation.subtitle = [row objectForKey:@"routes"];
@@ -73,6 +70,11 @@
 }
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+//    NSLog(@"%f, %f, %f, %f",
+//          mapView.region.center.latitude,
+//          mapView.region.center.longitude,
+//          mapView.region.span.latitudeDelta,
+//          mapView.region.span.longitudeDelta);
 
     if (annotation == mapView.userLocation) {
         return nil;
@@ -82,7 +84,22 @@
 
     pin.canShowCallout = YES;
     pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+
     return pin;
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    [self performSegueWithIdentifier:@"DetailsIphone" sender:view];
+    NSURL *busAPI = [NSURL URLWithString:@"https://s3.amazonaws.com/mobile-makers-lib/bus.json"];
+    [self loadBusStopAPI:busAPI];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"DetailsIphone"]) {
+        DetailViewController *detailView = segue.destinationViewController;
+        detailView.title = self.rowAnnotation.title;
+    }
 }
 
 @end
